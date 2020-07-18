@@ -22,6 +22,6 @@ def index():
 
 		# If the form was valid
 		if form.validate_on_submit():
-			return "Valid URL"
+			return "Valid URL: " + form.url.data
 
 		return render_template("index.html", form=form)
