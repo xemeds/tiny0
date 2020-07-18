@@ -33,4 +33,4 @@ def validate_URL(form, field):
 class URLForm(FlaskForm):
 	url = StringField(validators=[DataRequired(), Length(min=4, max=2000), validate_URL])
 
-	submit = SubmitField("Shorten URL")
+	submit = SubmitField("Shorten")
