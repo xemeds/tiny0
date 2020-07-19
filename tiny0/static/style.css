@@ -10,28 +10,37 @@ body {
 }
 
 .header {
-    color: #ffffff;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 3vh;
     text-align: center;
-    margin-top: 5%;
 }
 
 .title {
-    font-weight: bold;
+    color: #ffffff;
     font-size: 50px;
 }
 
 .desc {
-    margin-top: 1%;
+    color: #ffffff;
 }
 
 .container {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
     background-color: #2c2c2c;
     border-radius: 8px;
     padding: 30px 0px;
     box-shadow: 0px 10px 20px #000000;
     width: 80vw;
     height: auto;
-    margin: 10% auto 0 auto;
+    margin: 35vh auto 0 auto;
 }
 
 .inputs {
@@ -65,4 +74,12 @@ body {
 .submit:hover {
     background: #7b59a5;
     border-color: #7b59a5;
+}
+
+.error-message {
+    color: #ffffff;
+    text-align: center;
+    font-size: 100%;
+    padding: 0;
+    margin: 2% 0 -1% 0;
 }

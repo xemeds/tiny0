@@ -12,17 +12,17 @@ def validate_URL(form, field):
 	# If the url contains spaces or does not have any dots
 	if field.data.count(" ") > 0 or field.data.count(".") == 0:
 		# Raise a ValidationError
-		raise ValidationError()
+		raise ValidationError("Invalid URL")
 
 	# If the url starts with a dot after http:// or after https:// or just starts with a dot
 	if field.data.startswith("http://.") or field.data.startswith("https://.") or field.data.startswith("."):
 		# Raise a ValidationError
-		raise ValidationError()
+		raise ValidationError("Invalid URL")
 
 	# If the url ends with a dot and it is the only dot
 	if field.data.endswith(".") and field.data.count(".") == 1:
 		# Raise a ValidationError
-		raise ValidationError()
+		raise ValidationError("Invalid URL")
 
 	# If the URL does not start with http:// and https://
 	if not(field.data.startswith("http://")) and not(field.data.startswith("https://")):
@@ -31,6 +31,8 @@ def validate_URL(form, field):
 
 
 class URLForm(FlaskForm):
-	url = StringField(validators=[DataRequired(), Length(min=4, max=2000), validate_URL])
+	url = StringField(validators=[DataRequired(), 
+		Length(min=4, max=2000, message="URL must be between %(min)d and %(max)d characters"), 
+		validate_URL])
 
 	submit = SubmitField("Shorten")

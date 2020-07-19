@@ -1,11 +1,19 @@
 {% extends "layout.html" %}
 
 {% block body %}
-	<body onload="typeTitle()">
-		<div class="header">
-			<h1 id="title" class="title"></h1>
-			<h1 id="desc" class="desc"></h1>
-		</div>
+	{% if form.url.errors %}
+		<body>
+			<div class="header">
+				<h1 class="title">tiny0</h1>
+				<h1 class="desc">Custom URL Shortener</h1>
+			</div>
+	{% else %}
+		<body onload="typeTitle()">
+			<div class="header">
+				<h1 id="title" class="title"></h1>
+				<h1 id="desc" class="desc"></h1>
+			</div>
+	{% endif %}
 
 		<div class="container">
 			<form method="POST" action="">
@@ -15,6 +23,11 @@
 					{{ form.submit(class="submit") }}
 				</div>
 			</form>
+			{% if form.url.errors %}
+				{% for error in form.url.errors %}
+					<p class="error-message">{{ error }}</p>
+				{% endfor %}
+			{% endif %}
 		</div>
 
 		<script>
