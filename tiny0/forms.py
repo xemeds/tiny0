@@ -6,8 +6,7 @@ from wtforms.validators import DataRequired, Length
 def validate_URL(form, field):
 	# Make sure the url is not too short or long
 	if len(field.data) < 4 or len(field.data) > 2000:
-		# Raise a ValidationError
-		raise ValidationError()
+		return
 
 	# If the url contains spaces or does not have any dots
 	if field.data.count(" ") > 0 or field.data.count(".") == 0:
@@ -32,7 +31,7 @@ def validate_URL(form, field):
 
 class URLForm(FlaskForm):
 	url = StringField(validators=[DataRequired(), 
-		Length(min=4, max=2000, message="URL must be between %(min)d and %(max)d characters"), 
+		Length(min=4, max=2000, message="Invalid URL Length"), 
 		validate_URL])
 
 	submit = SubmitField("Shorten")
