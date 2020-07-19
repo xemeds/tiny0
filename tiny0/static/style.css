@@ -1,49 +1,52 @@
-body {
-	margin: 0;
-	padding: 0;
-	font-family: sans-serif;
-	background: #121212;
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
 }
 
-.form {
-	background: #2c2c2c;
-	border-radius: 15px;
-	padding: 7% 0;
-	position: absolute;
-	width: 85%;
-	top: 30%;
-	left: 50%;
-	transform: translate(-50%,-50%);
-	text-align: center;
+body {
+    background: #121212;
+
+}
+
+.container {
+    background-color: #2c2c2c;
+    border-radius: 8px;
+    padding: 30px 0px;
+    box-shadow: 0px 10px 20px #000000;
+    width: 80vw;
+    height: auto;
+    margin: 10% auto 0 auto;
+}
+
+.inputs {
+    display: flex;
+    justify-content: center;
 }
 
 .url {
-	background: #121212;
-	border: 2px solid #bb86fc;
-	border-radius: 5px;
-	padding: 2% 2%;
-	width: 50%;
-	margin-left: 2%;
-	color: #ffffff;
+    background: #121212;
+    border: 2px solid #bb86fc;
+    color: #ffffff;
+    width: 60%;
+    padding: 10px 10px;
+    margin-left: 3%;
 }
 
 .url:focus {
-	border-color: #7b59a5;
+    border-color: #7b59a5;
 }
 
 .submit {
-	background: #bb86fc;
-	border: 2px solid #bb86fc;
-	border-radius: 5px;
-	padding: 1% 1%;
-	display: inline-block;
-	margin: 1% 1% 0px 1%;
-	color: #000000;
-	font-weight: bold;
-	font-size: 120%;
+    background: #bb86fc;
+    border: 2px solid #bb86fc;
+    border-radius: 3px;
+    color: #000000;
+    display: inline-block;
+    margin: 0 3% 0 1%;
 }
 
 .submit:hover {
-	background: #7b59a5;
-	border-color: #7b59a5;
+    background: #7b59a5;
+    border-color: #7b59a5;
 }

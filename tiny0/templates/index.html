@@ -1,9 +1,13 @@
 {% extends "layout.html" %}
 
 {% block body %}
-	<form method="POST" action="" class="form">
-		{{ form.hidden_tag() }}
-		{{ form.url(placeholder="Enter the URL here", class="url") }}
-		{{ form.submit(class="submit") }}
-	</form>
+	<div class="container">
+		<form method="POST" action="">
+			{{ form.hidden_tag() }}
+			<div class="inputs">
+				{{ form.url(placeholder="Enter the URL here", class="url") }}
+				{{ form.submit(class="submit") }}
+			</div>
+		</form>
+	</div>
 {% endblock %}
