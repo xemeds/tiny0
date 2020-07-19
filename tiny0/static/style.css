@@ -9,6 +9,21 @@ body {
 
 }
 
+.header {
+    color: #ffffff;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 50px;
+}
+
+.desc {
+    margin-top: 1%;
+}
+
 .container {
     background-color: #2c2c2c;
     border-radius: 8px;
@@ -43,6 +58,7 @@ body {
     border-radius: 3px;
     color: #000000;
     display: inline-block;
+    padding: 0 1% 0 1%;
     margin: 0 3% 0 1%;
 }
 

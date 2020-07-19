@@ -1,13 +1,47 @@
 {% extends "layout.html" %}
 
 {% block body %}
-	<div class="container">
-		<form method="POST" action="">
-			{{ form.hidden_tag() }}
-			<div class="inputs">
-				{{ form.url(placeholder="Enter the URL here", class="url") }}
-				{{ form.submit(class="submit") }}
-			</div>
-		</form>
-	</div>
+	<body onload="typeTitle()">
+		<div class="header">
+			<h1 id="title" class="title"></h1>
+			<h1 id="desc" class="desc"></h1>
+		</div>
+
+		<div class="container">
+			<form method="POST" action="">
+				{{ form.hidden_tag() }}
+				<div class="inputs">
+					{{ form.url(placeholder="Enter the URL here", class="url") }}
+					{{ form.submit(class="submit") }}
+				</div>
+			</form>
+		</div>
+
+		<script>
+			var i = 0;
+			var title_text = "tiny0";
+			var desc_text = "Custom URL Shortener";
+			var speed = 120;
+
+			function typeTitle() {
+				if (i < title_text.length) {
+				    document.getElementById("title").innerHTML += title_text.charAt(i);
+				    i++;
+				    setTimeout(typeTitle, speed);
+				}
+				else {
+					i = 0;
+					typeDesc();
+				}
+			}
+
+			function typeDesc() {
+				if (i < desc_text.length) {
+				    document.getElementById("desc").innerHTML += desc_text.charAt(i);
+				    i++;
+				    setTimeout(typeDesc, speed);
+				}
+			}
+		</script>
+	</body>
 {% endblock %}
