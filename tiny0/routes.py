@@ -36,7 +36,8 @@ def short_url(token):
 
 	# If the query response was empty
 	if not query:
-		return "invalid"
+		# Return the error page with a 404 not found error
+		return render_template("error.html", error_message="404 Not Found"), 404
 
 	# Else if the query response contained data 
 	else:
