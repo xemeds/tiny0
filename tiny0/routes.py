@@ -4,7 +4,7 @@ from tiny0.forms import URLForm
 from tiny0.models import URL
 from tiny0.token import gen_valid_token
 
-# Index Page
+# Index route
 @app.route("/", methods=['GET', 'POST'])
 def index():
 	# Create a instance of the form
@@ -26,3 +26,18 @@ def index():
 	else:
 		# Return the index page with the form
 		return render_template("index.html", form=form)
+
+# Shortened url route
+@app.route("/<token>")
+def short_url(token):
+	# Query the token in the database
+	query = URL.query.filter_by(token=token).first()
+
+	# If the query response was empty
+	if not query:
+		return "invalid"
+
+	# Else if the query response contained data 
+	else:
+		# Redirect to the url of the token
+		return redirect(query.url)
