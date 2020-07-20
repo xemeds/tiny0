@@ -3,6 +3,7 @@ from tiny0 import app, db
 from tiny0.forms import URLForm
 from tiny0.models import URL
 from tiny0.token import gen_valid_token
+from tiny0.config import WEBSITE_DOMAIN
 
 # Index route
 @app.route("/", methods=['GET', 'POST'])
@@ -20,7 +21,7 @@ def index():
 		db.session.commit()
 
 		# Return the url page with the shortened url
-		return render_template("url.html", url="127.0.0.1:5000/" + token)
+		return render_template("url.html", url=WEBSITE_DOMAIN + "/" + token)
 
 	# If the form was invalid or not submitted
 	else:

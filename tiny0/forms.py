@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, ValidationError
 from wtforms.validators import DataRequired, Length
+from tiny0.config import WEBSITE_DOMAIN
 
 # Validates a URL
 def validate_URL(form, field):
@@ -21,6 +22,11 @@ def validate_URL(form, field):
 	# If the url ends with a dot and it is the only dot
 	if field.data.endswith(".") and field.data.count(".") == 1:
 		# Raise a ValidationError
+		raise ValidationError("Invalid URL")
+
+	# If the url contains the websites domain
+	if WEBSITE_DOMAIN in field.data:
+	# Raise a ValidationError
 		raise ValidationError("Invalid URL")
 
 	# If the URL does not start with http:// and https://
