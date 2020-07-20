@@ -42,3 +42,13 @@ def short_url(token):
 	else:
 		# Redirect to the url of the token
 		return redirect(query.url)
+
+
+# Error handling routes
+@app.errorhandler(404)
+def error_404(error):
+	return render_template("error.html", error_message="404 Not Found"), 404
+
+@app.errorhandler(500)
+def error_500(error):
+	return render_template("error.html", error_message="500 Internal Server Error"), 500

@@ -11,8 +11,6 @@ body {
 
 .headers {
     position: absolute;
-    margin-left: auto;
-    margin-right: auto;
     left: 0;
     right: 0;
     top: 3vh;
@@ -40,8 +38,6 @@ body {
 
 .container {
     position: absolute;
-    margin-left: auto;
-    margin-right: auto;
     left: 0;
     right: 0;
     background-color: #2c2c2c;
@@ -86,12 +82,21 @@ body {
     border-color: #7b59a5;
 }
 
-.error-message {
+.url-error-message {
     color: #ffffff;
     text-align: center;
     font-size: 100%;
     padding: 0;
     margin: 3% 0 0 0;
+}
+
+.error-message {
+    position: absolute;
+    left: 0;
+    right: 0;
+    color: #ffffff;
+    text-align: center;
+    margin: 40vh auto 0 auto;
 }
 
 .page-container {
