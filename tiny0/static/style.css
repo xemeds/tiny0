@@ -26,6 +26,10 @@ body {
     font-weight: bold;
 }
 
+.title:visited {
+    color: #bb86fc;
+}
+
 .title:hover {
     color: #7b59a5;
 }
