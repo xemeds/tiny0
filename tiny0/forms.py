@@ -31,8 +31,8 @@ def validate_URL(form, field):
 
 	# If the URL does not start with http:// and https://
 	if not(field.data.startswith("http://")) and not(field.data.startswith("https://")):
-		# Add https:// to the beginning of the URL
-		field.data = "https://" + field.data
+		# Add http:// to the beginning of the URL
+		field.data = "http://" + field.data
 
 
 class URLForm(FlaskForm):
