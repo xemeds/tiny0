@@ -1,4 +1,4 @@
-#from tiny0.models import URLs
+#from tiny0.models import URL
 from secrets import choice
 
 '''
