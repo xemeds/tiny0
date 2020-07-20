@@ -9,7 +9,7 @@ body {
 
 }
 
-.header {
+.headers {
     position: absolute;
     margin-left: auto;
     margin-right: auto;
@@ -19,9 +19,15 @@ body {
     text-align: center;
 }
 
-.title {
-    color: #ffffff;
+.title:link {
+    color: #bb86fc;
+    text-decoration: none;
     font-size: 50px;
+    font-weight: bold;
+}
+
+.title:hover {
+    color: #7b59a5;
 }
 
 .desc {
@@ -61,7 +67,7 @@ body {
     border-color: #7b59a5;
 }
 
-.submit {
+.button {
     background: #bb86fc;
     border: 2px solid #bb86fc;
     border-radius: 3px;
@@ -71,7 +77,7 @@ body {
     margin: 0 3% 0 1%;
 }
 
-.submit:hover {
+.button:hover {
     background: #7b59a5;
     border-color: #7b59a5;
 }

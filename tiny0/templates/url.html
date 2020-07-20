@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block body %}
+	<body>
+		<div class="headers">
+			<a class="title" href="{{ url_for('index') }}">tiny0</a>
+			<h1 class="desc">Custom URL Shortener</h1>
+		</div>
+
+			<div class="container">
+				<div class="inputs">
+					<input type="text" value="{{ url }}" id="url" class="url" readonly>
+					<button onclick="copyURL()" class="button">Copy</button>
+				</div>
+			</div>
+
+		<script>
+			function copyURL() {
+				var url = document.getElementById("url");
+				url.select();
+				url.setSelectionRange(0, 99999)
+				document.execCommand("copy");
+			}
+		</script>
+	</body>
+{% endblock %}

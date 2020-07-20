@@ -12,7 +12,7 @@ def index():
 
 	# If the form was valid
 	if form.validate_on_submit():
-		return "Valid URL: " + form.url.data
+		return render_template("url.html", url=form.url.data)
 
 	# If the form was invalid or not submitted
 	else:
