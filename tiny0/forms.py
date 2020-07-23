@@ -19,6 +19,11 @@ def validate_URL(form, field):
 		# Raise a ValidationError
 		raise ValidationError("Invalid URL")
 
+	# If the url starts with a slash after http:// or after https:// or just starts with a slash
+	if field.data.startswith("http:///") or field.data.startswith("https:///") or field.data.startswith("/"):
+		# Raise a ValidationError
+		raise ValidationError("Invalid URL")
+
 	# If the url ends with a dot and it is the only dot
 	if field.data.endswith(".") and field.data.count(".") == 1:
 		# Raise a ValidationError
