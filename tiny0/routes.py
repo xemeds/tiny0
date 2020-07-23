@@ -44,6 +44,10 @@ def short_url(token):
 		# Redirect to the url of the token
 		return redirect(query.url)
 
+# Donate route
+@app.route("/donate")
+def donate():
+	return render_template("donate.html")
 
 # Error handling routes
 @app.errorhandler(404)

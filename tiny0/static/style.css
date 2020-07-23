@@ -99,6 +99,17 @@ body {
     margin: 40vh auto 0 auto;
 }
 
+.donation {
+    position: absolute;
+    left: 0;
+    right: 0;
+    color: #ffffff;
+    list-style: none;
+    text-align: center;
+    margin: 40vh auto 0 auto;
+}
+
+
 .page-container {
   position: relative;
   min-height: 100vh;
@@ -123,11 +134,16 @@ footer {
 
 .footer-list li {
     color: #ffffff;
+    display: inline;
 }
 
 .footer-list li a:link {
     color: #bb86fc;
     text-decoration: none;
+}
+
+.footer-list li a:visited {
+    color: #bb86fc;
 }
 
 .footer-list li a:hover {
