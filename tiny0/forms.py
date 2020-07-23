@@ -10,7 +10,7 @@ def validate_URL(form, field):
 		return
 
 	# If the url contains spaces or does not have any dots
-	if field.data.count(" ") > 0 or field.data.count(".") == 0:
+	if (" " in field.data) or not("." in field.data):
 		# Raise a ValidationError
 		raise ValidationError("Invalid URL")
 

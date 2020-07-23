@@ -1,4 +1,4 @@
-from flask import render_template, redirect, request, url_for
+from flask import render_template, redirect, url_for
 from tiny0 import app, db
 from tiny0.forms import URLForm
 from tiny0.models import URL
