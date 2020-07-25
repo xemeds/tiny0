@@ -7,7 +7,7 @@ token_characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwx
 def gen_valid_token():
 	while True:
 		# Generate a token
-		token = "".join(choice(token_characters) for i in range(8))
+		token = "".join(choice(token_characters) for i in range(6))
 
 		# If the token does not exists in the database
 		if not URL.query.filter_by(token=token).first():
