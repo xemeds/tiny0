@@ -73,6 +73,7 @@ body {
     border: 2px solid #bb86fc;
     border-radius: 3px;
     color: #000000;
+    font-weight: bold;
     display: inline-block;
     padding: 0 1% 0 1%;
     margin: 0 3% 0 1%;
@@ -149,4 +150,8 @@ footer {
 
 .footer-list li a:hover {
     color: #7b59a5;
+}
+
+.copyright {
+    font-family: serif;
 }
