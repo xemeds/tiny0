@@ -46,13 +46,17 @@ body {
     padding: 30px 0px;
     box-shadow: 0px 10px 20px #000000;
     width: 80vw;
-    height: auto;
+    height: 100px;
     margin: 35vh auto 0 auto;
+    display: flex;
 }
 
 .inputs {
     display: flex;
+    width: 80vw;
+    height: 50px;
     justify-content: center;
+    margin: 25px 0;
 }
 
 .url {
@@ -60,7 +64,7 @@ body {
     border: 2px solid #bb86fc;
     color: #ffffff;
     width: 60%;
-    padding: 10px 10px;
+    padding: 10px;
     margin-left: 3%;
 }
 
@@ -108,7 +112,20 @@ body {
     color: #ffffff;
     list-style: none;
     text-align: center;
-    margin: 40vh auto 0 auto;
+    margin: 30vh auto 0 auto;
+}
+
+.donation h1 {
+    margin-bottom: 2vh;
+}
+
+.donation h4 {
+    margin-bottom: 4vh;
+}
+
+.donation img {
+    padding: 1vh;
+    background-color: #ffffff;
 }
 
 
