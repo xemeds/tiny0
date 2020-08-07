@@ -37,7 +37,7 @@ def short_url(token):
 	# If the query response was empty
 	if not query:
 		# Return the error page with a 404 not found error
-		return render_template("error.html", error_message="404 Not Found"), 404
+		return render_template("error.html", error_code=404, error_message="Not Found"), 404
 
 	# Else if the query response contained data 
 	else:
@@ -52,8 +52,8 @@ def donate():
 # Error handling routes
 @app.errorhandler(404)
 def error_404(error):
-	return render_template("error.html", error_message="404 Not Found"), 404
+	return render_template("error.html", error_code=404, error_message="Not Found"), 404
 
 @app.errorhandler(500)
 def error_500(error):
-	return render_template("error.html", error_message="500 Internal Server Error"), 500
+	return render_template("error.html", error_code=500, error_message="Internal Server Error"), 500
