@@ -22,12 +22,12 @@
 						{{ form.url(placeholder="Enter the URL here", class="url") }}
 						{{ form.submit(class="button") }}
 					</div>
+					{% if form.url.errors %}
+						{% for error in form.url.errors %}
+							<p class="url-error-message">{{ error }}</p>
+						{% endfor %}
+					{% endif %}
 				</form>
-				{% if form.url.errors %}
-					{% for error in form.url.errors %}
-						<p class="url-error-message">{{ error }}</p>
-					{% endfor %}
-				{% endif %}
 			</div>
 
 		{% if not form.url.errors %}
