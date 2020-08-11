@@ -107,6 +107,7 @@ body {
     position: absolute;
     left: 0;
     right: 0;
+    z-index: 100;
     color: #ffffff;
     list-style: none;
     text-align: center;
@@ -122,6 +123,7 @@ body {
 }
 
 .donation img {
+    width: 30vh;
     padding: 1vh;
     background-color: #ffffff;
 }
