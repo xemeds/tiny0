@@ -1,3 +1,5 @@
+**Go to** [tiny0.cc](https://tiny0.cc) **to view the website**
+
 # How it works
 
 Each URL that is submitted goes through a simple check for validity and/or added http:// before it to redirect successful.
