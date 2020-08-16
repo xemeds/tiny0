@@ -15,12 +15,12 @@ def validate_URL(form, field):
 		raise ValidationError("Invalid URL")
 
 	# If the url starts with a dot after http:// or after https:// or just starts with a dot
-	if field.data.startswith("http://.") or field.data.startswith("https://.") or field.data.startswith("."):
+	if field.data.lower().startswith("http://.") or field.data.lower().startswith("https://.") or field.data.startswith("."):
 		# Raise a ValidationError
 		raise ValidationError("Invalid URL")
 
 	# If the url starts with a slash after http:// or after https:// or just starts with a slash
-	if field.data.startswith("http:///") or field.data.startswith("https:///") or field.data.startswith("/"):
+	if field.data.lower().startswith("http:///") or field.data.lower().startswith("https:///") or field.data.startswith("/"):
 		# Raise a ValidationError
 		raise ValidationError("Invalid URL")
 
@@ -30,12 +30,12 @@ def validate_URL(form, field):
 		raise ValidationError("Invalid URL")
 
 	# If the url contains the websites domain
-	if WEBSITE_DOMAIN in field.data:
+	if WEBSITE_DOMAIN in field.data.lower():
 	# Raise a ValidationError
 		raise ValidationError("Invalid URL")
 
 	# If the URL does not start with http:// and https://
-	if not(field.data.startswith("http://")) and not(field.data.startswith("https://")):
+	if not(field.data.lower().startswith("http://")) and not(field.data.lower().startswith("https://")):
 		# Add http:// to the beginning of the URL
 		field.data = "http://" + field.data
 
