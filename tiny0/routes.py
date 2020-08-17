@@ -13,17 +13,40 @@ def index():
 
 	# If the form was valid
 	if form.validate_on_submit():
-		# Generate a valid token
-		token = gen_valid_token()
 
-		# Add the token and the given url to the database
-		db.session.add(URL(token=token, url=form.url.data))
-		db.session.commit()
+		# If the given url is a rick roll
+		if ("youtube.com/watch?v=dQw4w9WgXcQ" in form.url.data) or ("youtu.be/dQw4w9WgXcQ" in form.url.data):
+			# Generate a valid token
+			token = gen_valid_token()
 
-		# Return the url page with the shortened url
-		return render_template("url.html", url=WEBSITE_DOMAIN + "/" + token)
+			# Add the token and the given url to the database
+			db.session.add(URL(token=token, url=form.url.data))
+			db.session.commit()
 
-	# If the form was invalid or not submitted
+			# Return the url page with the shortened url
+			return render_template("url.html", url=WEBSITE_DOMAIN + "/" + token)
+
+		# Query the urls that are not a rick roll in the database
+		query = URL.query.filter_by(url=form.url.data).first()
+
+		# If the url exists in the database
+		if query:
+			# Return the url page with the previously shortened url
+			return render_template("url.html", url=WEBSITE_DOMAIN + "/" + query.token)
+
+		# Else if the url does not exist in the database
+		else:
+			# Generate a valid token
+			token = gen_valid_token()
+
+			# Add the token and the given url to the database
+			db.session.add(URL(token=token, url=form.url.data))
+			db.session.commit()
+
+			# Return the url page with the shortened url
+			return render_template("url.html", url=WEBSITE_DOMAIN + "/" + token)
+
+	# Else if the form was invalid or not submitted
 	else:
 		# Return the index page with the form
 		return render_template("index.html", form=form)

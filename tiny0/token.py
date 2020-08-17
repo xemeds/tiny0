@@ -1,3 +1,4 @@
+from tiny0 import db
 from tiny0.models import URL
 from secrets import choice
 
@@ -10,7 +11,7 @@ def gen_valid_token():
 		token = "".join(choice(token_characters) for i in range(6))
 
 		# If the token does not exists in the database
-		if not URL.query.filter_by(token=token).first():
+		if not db.session.query(db.session.query(URL).filter_by(token=token).exists()).scalar():
 			# Break the loop
 			break
 
