@@ -32,7 +32,7 @@ def validate_URL(form, field):
 	# If the url contains the websites domain
 	if WEBSITE_DOMAIN in field.data.lower():
 	# Raise a ValidationError
-		raise ValidationError("Invalid URL")
+		raise ValidationError("Yeah, that's definitely a valid URL")
 
 	# If the URL does not start with http:// and https://
 	if not(field.data.lower().startswith("http://")) and not(field.data.lower().startswith("https://")):
