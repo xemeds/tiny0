@@ -34,13 +34,17 @@ Visit the below URL to view the flask app:
 
 If you do not have a dedicated server, I highly recommend using [Heroku](https://devcenter.heroku.com/articles/getting-started-with-python), [PythonAnywhere](https://www.pythonanywhere.com/) or [AWS](https://aws.amazon.com/getting-started/projects/deploy-python-application/) to host your application.
 
-Before deploying set debug to False:
+Before deploying, in the file:
 
-	run.py -->> app.run(debug=True)
+	tiny0/run.py  
 
-And change the configurations:
+set running in debug mode to False:
 
-	tiny0 -->> config.json
+	app.run(debug=False)
+
+and change the config file located in the directory below:
+
+	tiny0/tiny0/config.json
 
 # License
 
@@ -49,4 +53,3 @@ This project is under the [MIT](https://github.com/xemeds/tiny0/blob/master/LICE
 # Donate
 
 **Bitcoin Address:** 1Mg55rPVuQ2P8zKsCcLdsmgqH24uLXfLbR
-
