@@ -119,16 +119,22 @@ body {
     margin-bottom: 2vh;
 }
 
-.donation h4 {
+.donation h3 {
     margin-bottom: 4vh;
 }
 
-.donation img {
-    width: 30vh;
-    padding: 1vh;
-    background-color: #ffffff;
+.donation a:link {
+    color: #bb86fc;
+    text-decoration: none;
 }
 
+.donation a:visited {
+    color: #bb86fc;
+}
+
+.donation a:hover {
+    color: #7b59a5;
+}
 
 .page-container {
   position: relative;
@@ -157,16 +163,16 @@ footer {
     display: inline;
 }
 
-.footer-list li a:link {
+.footer-list a:link {
     color: #bb86fc;
     text-decoration: none;
 }
 
-.footer-list li a:visited {
+.footer-list a:visited {
     color: #bb86fc;
 }
 
-.footer-list li a:hover {
+.footer-list a:hover {
     color: #7b59a5;
 }
 

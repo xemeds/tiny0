@@ -53,3 +53,4 @@ This project is under the [MIT](https://github.com/xemeds/tiny0/blob/master/LICE
 # Donate
 
 **Bitcoin Address:** 1Mg55rPVuQ2P8zKsCcLdsmgqH24uLXfLbR
+**Patreon:** [patreon.com/xemeds](https://www.patreon.com/xemeds)

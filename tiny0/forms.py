@@ -39,7 +39,6 @@ def validate_URL(form, field):
 		# Add http:// to the beginning of the URL
 		field.data = "http://" + field.data
 
-
 class URLForm(FlaskForm):
 	url = StringField(validators=[DataRequired(), 
 		Length(min=4, max=2000, message="Invalid URL Length"), 
