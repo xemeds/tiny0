@@ -13,7 +13,70 @@
 
 	<div id="page-container">
 		<div id="content-wrap">
+			{% if form %}
+				{% if not form.url.errors %}
+				<body onload="typeTitle()">
+					<div class="headers">
+						<a class="title" id="title" href="{{ url_for('index') }}"></a>
+						<h1 id="desc" class="desc"></h1>
+					</div>
+				{% else %}
+				<body>
+					<div class="headers">
+						<a class="title" href="{{ url_for('index') }}">tiny0</a>
+						<h1 class="desc">Custom URL Shortener</h1>
+					</div>
+				{% endif %}
+			{% else %}
+			<body>
+				<div class="headers">
+					<a class="title" href="{{ url_for('index') }}">tiny0</a>
+					<h1 class="desc">Custom URL Shortener</h1>
+				</div>
+			{% endif %}
+
 			{% block body %}{% endblock %}
+
+			{% if form %}
+				{% if not form.url.errors %}
+				<script>
+					var i = 0;
+					var title_text = "tiny0";
+					var desc_text = "Custom URL Shortener";
+					var speed = 120;
+
+					function typeTitle() {
+						if (i < title_text.length) {
+							document.getElementById("title").innerHTML += title_text.charAt(i);
+							i++;
+							setTimeout(typeTitle, speed);
+						}
+						else {
+							i = 0;
+							setTimeout(typeDesc, 200)
+						}
+					}
+
+					function typeDesc() {
+						if (i < desc_text.length) {
+							document.getElementById("desc").innerHTML += desc_text.charAt(i);
+							i++;
+							setTimeout(typeDesc, speed);
+						}
+					}
+				</script>
+				{% endif %}
+			{% elif url %}
+				<script>
+					function copyURL() {
+							var url = document.getElementById("url");
+						url.select();
+						url.setSelectionRange(0, 99999)
+						document.execCommand("copy");
+					}
+				</script>
+			{% endif %}
+			</body>
 		</div>
 	</div>
 
