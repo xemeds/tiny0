@@ -1,10 +1,10 @@
 {% extends "layout.html" %}
 
 {% block body %}
-	<div class="container">
-		<div class="inputs">
-			<input type="text" value="{{ url }}" id="url" class="url" readonly>
-			<button onclick="copyURL()" class="button">Copy</button>
-		</div>
+	<div class="url-form">
+		<ul class='input-list'>
+			<li><input type="text" value="{{ url }}" id="url" class="url" readonly></li>
+			<li><button onclick="copyURL()" class="button">Copy</button></li>
+		</ul>
 	</div>
 {% endblock %}

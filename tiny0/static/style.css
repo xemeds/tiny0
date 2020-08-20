@@ -33,37 +33,33 @@ body {
 }
 
 .desc {
+    font-size: 25px;
+    font-weight: bold;
     color: #ffffff;
 }
 
-.container {
-    position: absolute;
-    left: 0;
-    right: 0;
+.url-form {
     z-index: 100;
     background-color: #2c2c2c;
     border-radius: 8px;
-    padding: 30px 0px;
+    padding: 30px;
     box-shadow: 0px 10px 20px #000000;
-    width: 80vw;
-    height: 100px;
-    margin: 35vh auto 0 auto;
+    margin: 35vh 10vw 0 10vw;
 }
 
-.inputs {
-    display: flex;
-    justify-content: center;
-    height: 50px;
-    margin-top: 25px;
+.input-list {
+    width: 100%;
+    list-style: none;
+    text-align: center;
 }
 
 .url {
+    width: 80%;
+    padding: 10px;
     background: #121212;
     border: 2px solid #bb86fc;
     color: #ffffff;
-    width: 60%;
-    padding: 10px 10px;
-    
+    margin-bottom: 2vh;
 }
 
 .url:focus {
@@ -71,15 +67,13 @@ body {
 }
 
 .button {
+    width: 100px;
     background: #bb86fc;
     border: 2px solid #bb86fc;
     border-radius: 3px;
+    padding: 10px;
     color: #000000;
     font-weight: bold;
-    display: inline-block;
-    padding: 0 1vw 0 1vw;
-    margin-left: 1vw;
-    width: auto;
 }
 
 .button:hover {
@@ -90,18 +84,15 @@ body {
 .url-error-message {
     color: #ffffff;
     text-align: center;
-    font-size: 100%;
-    margin: 2vh 0 0 0;
+    margin: -1vh 0 2vh 0;
 }
 
 .error-message {
-    position: absolute;
-    left: 0;
-    right: 0;
-    color: #ffffff;
     text-align: center;
-    margin: 40vh auto 0 auto;
-    font-size: 30px;
+    color: #ffffff;
+    font-size: 50px;
+    font-weight: bold;
+    margin: 35vh auto 0 auto;
 }
 
 .donation {
@@ -115,11 +106,21 @@ body {
     margin: 30vh auto 0 auto;
 }
 
-.donation h1 {
+.donation-title {
+    font-size: 40px;
+    font-weight: bold;
     margin-bottom: 2vh;
 }
 
-.donation h4 {
+.donation-patreon {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 5vh;
+}
+
+.donation-bitcoin {
+    font-size: 16px;
+    font-weight: bold;
     margin-bottom: 4vh;
 }
 
