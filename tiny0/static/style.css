@@ -39,6 +39,7 @@ body {
 }
 
 .url-form {
+    position: relative;
     z-index: 100;
     background-color: #2c2c2c;
     border-radius: 8px;
@@ -96,10 +97,6 @@ body {
 }
 
 .donation {
-    position: absolute;
-    left: 0;
-    right: 0;
-    z-index: 100;
     color: #ffffff;
     list-style: none;
     text-align: center;
@@ -121,7 +118,6 @@ body {
 .donation-bitcoin {
     font-size: 16px;
     font-weight: bold;
-    margin-bottom: 4vh;
 }
 
 .donation a:link {
@@ -138,20 +134,20 @@ body {
 }
 
 .page-container {
-  position: relative;
-  min-height: 100vh;
+    position: relative;
+    min-height: 100vh;
 }
 
 .content-wrap {
-  padding-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 2.5rem;
-  margin-bottom: 5vh;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+    margin-bottom: 5vh;
 }
 
 .footer-list {
