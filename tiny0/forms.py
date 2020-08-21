@@ -47,6 +47,11 @@ def validate_token(form, field):
 	if len(field.data) < 6 or len(field.data) > 16:
 		return
 
+	# If the token is the same as a pages route
+	if field.data == "donate" or field.data == "tracker" or field.data == "lookup":
+		# Raise a ValidationError
+		raise ValidationError("Token already exists")
+
 	# For each character in the token
 	for char in field.data:
 		# If it is not a valid character
