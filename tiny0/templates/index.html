@@ -15,8 +15,9 @@
 		{{ form.hidden_tag() }}
 		<ul class='input-list'>
 			<li>{{ form.url(placeholder="Enter the URL here", autofocus=true, class="url") }}</li>
-			<li>{{ form.token(placeholder="Enter the token here (optional)", autofocus=true, class="token") }}</li>
+			<li>{{ form.token(placeholder="Enter the token (optional)", autofocus=true, class="token") }}</li>
 			<ul class="token-explanation">
+				<li>tiny0.cc/token</li>
 				<li>Token must be between 6 and 16 characters long</li>
 				<li>It can only contain letters, numbers, underscores(_) and dashes(-)</li>
 			</ul>
