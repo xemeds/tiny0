@@ -14,7 +14,7 @@
 	<div id="page-container">
 		<div id="content-wrap">
 			{% if form %}
-				{% if not form.url.errors %}
+				{% if not form.url.errors and not form.token.errors %}
 				<body onload="typeTitle()">
 					<div class="headers">
 						<a class="title" id="title" href="{{ url_for('index') }}"></a>
@@ -38,7 +38,7 @@
 			{% block body %}{% endblock %}
 
 			{% if form %}
-				{% if not form.url.errors %}
+				{% if not form.url.errors and not form.token.errors %}
 				<script>
 					var i = 0;
 					var title_text = "tiny0";

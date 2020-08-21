@@ -13,15 +13,27 @@ def index():
 
 	# If the form was valid
 	if form.validate_on_submit():
-		# Generate a valid token
-		token = gen_valid_token()
 
-		# Add the token and the given url to the database
-		db.session.add(URL(token=token, url=form.url.data))
-		db.session.commit()
+		# If a token was given
+		if form.token.data:
+			# Add the token and the given url to the database
+			db.session.add(URL(token=form.token.data, url=form.url.data))
+			db.session.commit()
 
-		# Return the url page with the shortened url
-		return render_template("url.html", url=WEBSITE_DOMAIN + "/" + token)
+			# Return the url page with the shortened url
+			return render_template("url.html", url=WEBSITE_DOMAIN + "/" + form.token.data)
+
+		# Else if a token was not given
+		else:
+			# Generate a valid token
+			token = gen_valid_token()
+
+			# Add the token and the given url to the database
+			db.session.add(URL(token=token, url=form.url.data))
+			db.session.commit()
+
+			# Return the url page with the shortened url
+			return render_template("url.html", url=WEBSITE_DOMAIN + "/" + token)
 
 	# If the form was invalid or not submitted
 	else:

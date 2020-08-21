@@ -67,6 +67,19 @@ body {
     border-color: #7b59a5;
 }
 
+.token {
+    width: 80%;
+    padding: 10px;
+    background: #121212;
+    border: 2px solid #bb86fc;
+    color: #ffffff;
+    margin-bottom: 2vh;
+}
+
+.token:focus {
+    border-color: #7b59a5;
+}
+
 .button {
     width: 100px;
     background: #bb86fc;
@@ -82,10 +95,19 @@ body {
     border-color: #7b59a5;
 }
 
-.url-error-message {
+.form-error-message {
     color: #ffffff;
+    list-style: none;
     text-align: center;
     margin: -1vh 0 2vh 0;
+}
+
+.token-explanation {
+    color: #ffffff;
+    font-size: 13px;
+    list-style: none;
+    text-align: center;
+    margin-bottom: 2vh;
 }
 
 .error-message {

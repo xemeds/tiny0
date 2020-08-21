@@ -1,7 +1,9 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, ValidationError
-from wtforms.validators import DataRequired, Length
+from wtforms.validators import DataRequired, Length, Optional
 from tiny0.config import WEBSITE_DOMAIN
+from tiny0 import db
+from tiny0.models import URL
 
 # Validates a URL
 def validate_URL(form, field):
@@ -31,7 +33,7 @@ def validate_URL(form, field):
 
 	# If the url contains the websites domain
 	if WEBSITE_DOMAIN in field.data.lower():
-	# Raise a ValidationError
+		# Raise a ValidationError
 		raise ValidationError("Invalid URL")
 
 	# If the URL does not start with http:// and https://
@@ -39,9 +41,29 @@ def validate_URL(form, field):
 		# Add http:// to the beginning of the URL
 		field.data = "http://" + field.data
 
+# Validates a token
+def validate_token(form, field):
+	# Make sure the token is not too short or long
+	if len(field.data) < 6 or len(field.data) > 16:
+		return
+
+	# For each character in the token
+	for char in field.data:
+		# If it is not a valid character
+		if not(char.isalpha()) and not(char.isdigit()) and not(char == "_") and not(char == '-'):
+			# Raise a ValidationError
+			raise ValidationError("Token contains invalid characters")
+
+	# If the token exists in the database
+	if db.session.query(db.session.query(URL).filter_by(token=field.data).exists()).scalar():
+		# Raise a ValidationError
+		raise ValidationError("Token already exists")
+
 class URLForm(FlaskForm):
 	url = StringField(validators=[DataRequired(), 
-		Length(min=4, max=2000, message="Invalid URL Length"), 
+		Length(min=4, max=2000, message="Invalid URL length"), 
 		validate_URL])
+
+	token = StringField(validators=[Optional(), Length(min=6, max=16, message="Invalid token length"), validate_token])
 
 	submit = SubmitField("Shorten")

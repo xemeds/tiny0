@@ -2,14 +2,24 @@
 
 {% block body %}
 	<form method="POST" action="" class="url-form">
+		{% if form.url.errors or form.token.errors %}
+			<ul class="form-error-message">
+				{% for error in form.url.errors %}
+					<li>{{ error }}</li>
+				{% endfor %}
+				{% for error in form.token.errors %}
+					<li>{{ error }}</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
 		{{ form.hidden_tag() }}
 		<ul class='input-list'>
-			{% if form.url.errors %}
-				{% for error in form.url.errors %}
-					<p class="url-error-message">{{ error }}</p>
-				{% endfor %}
-			{% endif %}
 			<li>{{ form.url(placeholder="Enter the URL here", autofocus=true, class="url") }}</li>
+			<li>{{ form.token(placeholder="Enter the token here (optional)", autofocus=true, class="token") }}</li>
+			<ul class="token-explanation">
+				<li>Token must be between 6 and 16 characters long</li>
+				<li>It can only contain letters, numbers, underscores(_) and dashes(-)</li>
+			</ul>
 			<li>{{ form.submit(class="button") }}</li>
 		</ul>
 	</form>
