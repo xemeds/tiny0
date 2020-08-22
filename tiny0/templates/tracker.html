@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block body %}
+	<form method="POST" action="" class="url-form">
+		{% if form.errors %}
+			<ul class="form-error-message">
+				{% for error in form.url.errors %}
+					<li>{{ error }}</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+		{{ form.hidden_tag() }}
+		<ul class='input-list'>
+			<li>{{ form.url(placeholder="Enter the short URL here", autofocus=true, class="url") }}</li>
+			<li>{{ form.submit(class="button") }}</li>
+		</ul>
+	</form>
+{% endblock %}

@@ -2,7 +2,7 @@
 
 {% block body %}
 	<form method="POST" action="" class="url-form">
-		{% if form.url.errors or form.token.errors %}
+		{% if form.errors %}
 			<ul class="form-error-message">
 				{% for error in form.url.errors %}
 					<li>{{ error }}</li>
@@ -24,4 +24,7 @@
 			<li>{{ form.submit(class="button") }}</li>
 		</ul>
 	</form>
+	<div class="click-tracker">
+		<a href="{{ url_for('tracker') }}">Click Tracker</a>
+	</div>
 {% endblock %}

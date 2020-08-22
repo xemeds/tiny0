@@ -110,6 +110,43 @@ body {
     margin-bottom: 2vh;
 }
 
+.click-tracker {
+    text-align: center;
+    margin-top: 5vh;
+}
+
+.click-tracker a:link {
+    color: #bb86fc;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.click-tracker a:visited {
+    color: #bb86fc;
+}
+
+.click-tracker a:hover {
+    color: #7b59a5;
+}
+
+.clicks-list {
+    text-align: center;
+    margin: 30vh 0 0 0;
+}
+
+.clicks-number {
+    color: #bb86fc;
+    font-size: 125px;
+    font-weight: bold;
+}
+
+.clicks-text {
+    color: #bb86fc;
+    font-size: 25px;
+    font-weight: bold;
+}
+
 .error-message {
     text-align: center;
     color: #ffffff;

@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block body %}
+	<ul class="clicks-list">
+		<li><p class="clicks-number">{{ clicks }}</p></li>
+		<li><p class="clicks-text">Click(s)</p></li>
+	</ul>
+	<div class="click-tracker">
+		<a href="{{ url_for('tracker') }}">Track Another</a>
+	</div>
+{% endblock %}
