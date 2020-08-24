@@ -1,13 +1,18 @@
 {% extends "layout.html" %}
 
 {% block body %}
-	<div class="url-form">
-		<ul class='input-list'>
-			<li><input type="text" value="{{ url }}" id="url" class="url" readonly></li>
-			<li><button onclick="copyURL()" class="button">Copy</button></li>
-		</ul>
-	</div>
-	<div class="click-tracker">
-		<a href="{{ url_for('tracker') }}">Click Tracker</a>
-	</div>
+<div class="url-form">
+	<h1>&#60 Short URL &#62</h1>
+	<input type="text" value="{{ url }}" id="url" class="feedback-input" readonly>
+	<button onclick="copyURL()" class="button">Copy</button>
+</div>
+{% endblock %}
+
+{% block script %}
+function copyURL() {
+	var url = document.getElementById("url");
+	url.select();
+	url.setSelectionRange(0, 99999)
+	document.execCommand("copy");
+}
 {% endblock %}

@@ -7,87 +7,39 @@
 		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 		<link href="{{ url_for('static', filename='font.css') }}" rel="stylesheet">
 		<link href="/static/style.css" rel="stylesheet" type="text/css"/>
-		
+
+		<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+		<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
 		<title>tiny0 - Custom URL Shortener</title>
 	</head>
+	<body>
+		<nav>
+			<ul>
+				<li class="logo">tiny0 - URL Shortener</li>
+				<li class="items"><a href="{{ url_for('index') }}">Shortener</a></li>
+				<li class="items"><a href="{{ url_for('tracker') }}">Tracker</a></li>
+				<li class="items"><a href="#">Lookup</a></li>
+				<li class="items"><a href="#">Report</a></li>
+				<li class="items"><a href="{{ url_for('donate') }}">Donate</a></li>
+				<li class="btn"><a href="#"><i class="fas fa-bars"></i></a></li>
+			</ul>
+		</nav>
 
-	<div id="page-container">
-		<div id="content-wrap">
-			{% if form %}
-				{% if not form.errors %}
-				<body onload="typeTitle()">
-					<div class="headers">
-						<a class="title" id="title" href="{{ url_for('index') }}"></a>
-						<p id="desc" class="desc"></p>
-					</div>
-				{% else %}
-				<body>
-					<div class="headers">
-						<a class="title" href="{{ url_for('index') }}">tiny0</a>
-						<h1 class="desc">Custom URL Shortener</h1>
-					</div>
-				{% endif %}
-			{% else %}
-			<body>
-				<div class="headers">
-					<a class="title" href="{{ url_for('index') }}">tiny0</a>
-					<h1 class="desc">Custom URL Shortener</h1>
-				</div>
-			{% endif %}
+		{% block body %}{% endblock %}
 
-			{% block body %}{% endblock %}
-
-			{% if form %}
-				{% if not form.errors %}
-				<script>
-					var i = 0;
-					var title_text = "tiny0";
-					var desc_text = "Custom URL Shortener";
-					var speed = 120;
-
-					function typeTitle() {
-						if (i < title_text.length) {
-							document.getElementById("title").innerHTML += title_text.charAt(i);
-							i++;
-							setTimeout(typeTitle, speed);
-						}
-						else {
-							i = 0;
-							setTimeout(typeDesc, 200)
-						}
-					}
-
-					function typeDesc() {
-						if (i < desc_text.length) {
-							document.getElementById("desc").innerHTML += desc_text.charAt(i);
-							i++;
-							setTimeout(typeDesc, speed);
-						}
-					}
-				</script>
-				{% endif %}
-			{% elif url %}
-				<script>
-					function copyURL() {
-							var url = document.getElementById("url");
-						url.select();
-						url.setSelectionRange(0, 99999)
-						document.execCommand("copy");
-					}
-				</script>
-			{% endif %}
-			</body>
-		</div>
-	</div>
+		<script>
+			$(document).ready(function(){
+				$('.btn').click(function(){
+					$('.items').toggleClass("show");
+					$('ul li').toggleClass("hide");
+				});
+			});
+			{% block script %}{% endblock %}
+		</script>
+	</body>
 
 	<footer>
-		<ul class="footer-list">
-			<li class="copyright">&#169; </li>
-			<li>2020 Muhammed Ali Dilek</li>
-			<ul>
-				<li><a href="{{ url_for('donate') }}">Donate</a></li>
-				<li><a href="https://github.com/xemeds" target="_blank">GitHub</a></li>
-			</ul>
-		</ul>
+		&#169; 2020 Muhammed Ali Dilek
 	</footer>
 </html>

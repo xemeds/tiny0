@@ -1,18 +1,17 @@
 {% extends "layout.html" %}
 
 {% block body %}
-	<form method="POST" action="" class="url-form">
-		{% if form.errors %}
-			<ul class="form-error-message">
-				{% for error in form.url.errors %}
-					<li>{{ error }}</li>
-				{% endfor %}
-			</ul>
-		{% endif %}
-		{{ form.hidden_tag() }}
-		<ul class='input-list'>
-			<li>{{ form.url(placeholder="Enter the short URL here", autofocus=true, class="url") }}</li>
-			<li>{{ form.submit(class="button") }}</li>
-		</ul>
-	</form>
+<form method="POST" action="" class="url-form">
+	<h1>&#60 Click Tracker &#62</h1>
+	{{ form.hidden_tag() }}
+	{{ form.url(placeholder="Enter the short URL here", autofocus=true, class="feedback-input") }}
+	{{ form.submit(class="button") }}
+	{% if form.errors %}
+		<div class="form-errors">
+			{% for error in form.url.errors %}
+				<h4>{{ error }}</h4>
+			{% endfor %}
+		</div>
+	{% endif %}
+</form>
 {% endblock %}

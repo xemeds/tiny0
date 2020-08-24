@@ -1,8 +1,8 @@
 {% extends "layout.html" %}
 
 {% block body %}
-	<ul class="error-message">
-		<li><p>{{ error_code }}</p></li>
-		<li><p>{{ error_message }}</p></li>
-	</ul>
+<div class="error">
+	<h1>{{ error_code }}</h1>
+	<h2>{{ error_message }}</h2>
+</div>
 {% endblock %}
