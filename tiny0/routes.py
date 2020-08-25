@@ -1,6 +1,6 @@
 from flask import render_template, redirect, url_for
 from tiny0 import app, db
-from tiny0.forms import URLForm, TrackerForm
+from tiny0.forms import URLForm, ShortURLForm
 from tiny0.models import URL
 from tiny0.token import gen_valid_token
 from tiny0.config import WEBSITE_DOMAIN
@@ -60,11 +60,11 @@ def short_url(token):
 		# Redirect to the url of the token
 		return redirect(query.url)
 
-# Click Tracker route
+# Click tracker route
 @app.route("/tracker", methods=['GET', 'POST'])
 def tracker():
 	# Create a instance of the form
-	form = TrackerForm()
+	form = ShortURLForm()
 
 	# If the form was valid
 	if form.validate_on_submit():
@@ -78,6 +78,25 @@ def tracker():
 	else:
 		# Return the tracker page with the form
 		return render_template("tracker.html", form=form)
+
+# url lookup route
+@app.route("/lookup", methods=['GET', 'POST'])
+def lookup():
+	# Create a instance of the form
+	form = ShortURLForm()
+
+	# If the form was valid
+	if form.validate_on_submit():
+		# Get the original url of the given token
+		url = URL.query.filter_by(token=form.url.data).first().url
+
+		# Return the original url page with the url
+		return render_template("original-url.html", url=url)
+
+	# Else if the form was invalid or not submitted
+	else:
+		# Return the tracker page with the form
+		return render_template("lookup.html", form=form)
 
 # Donate route
 @app.route("/donate")

@@ -102,7 +102,7 @@ class URLForm(FlaskForm):
 
 	submit = SubmitField("Shorten")
 
-class TrackerForm(FlaskForm):
+class ShortURLForm(FlaskForm):
 	url = StringField(validators=[DataRequired(), Length(min=len(WEBSITE_DOMAIN) + 7, max=len(WEBSITE_DOMAIN) + 25, message="Invalid short URL"), validate_short_URL])
 
 	submit = SubmitField("Track")
