@@ -1,7 +1,7 @@
 from flask import render_template, redirect, url_for
 from tiny0 import app, db
-from tiny0.forms import URLForm, ShortURLForm
-from tiny0.models import URL
+from tiny0.forms import URLForm, ShortURLForm, ReportForm
+from tiny0.models import URL, Reports
 from tiny0.token import gen_valid_token
 from tiny0.config import WEBSITE_DOMAIN
 
@@ -95,8 +95,28 @@ def lookup():
 
 	# Else if the form was invalid or not submitted
 	else:
-		# Return the tracker page with the form
+		# Return the lookup page with the form
 		return render_template("lookup.html", form=form)
+
+# url report route
+@app.route("/report", methods=['GET', 'POST'])
+def report():
+	# Create a instance of the form
+	form = ReportForm()
+
+	# If the form was valid
+	if form.validate_on_submit():
+		# Add the report to the database
+		db.session.add(Reports(token=form.url.data, message=form.message.data))
+		db.session.commit()
+
+		# Return the thanks page
+		return render_template("thanks.html")
+
+	# Else if the form was invalid or not submitted
+	else:
+		# Return the report page with the form
+		return render_template("report.html", form=form)
 
 # Donate route
 @app.route("/donate")

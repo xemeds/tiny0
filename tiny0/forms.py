@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, ValidationError
+from wtforms import StringField, SubmitField, TextAreaField, ValidationError
 from wtforms.validators import DataRequired, Length, Optional
 from tiny0.config import WEBSITE_DOMAIN
 from tiny0 import db
@@ -105,4 +105,11 @@ class URLForm(FlaskForm):
 class ShortURLForm(FlaskForm):
 	url = StringField(validators=[DataRequired(), Length(min=len(WEBSITE_DOMAIN) + 7, max=len(WEBSITE_DOMAIN) + 25, message="Invalid short URL"), validate_short_URL])
 
-	submit = SubmitField("Track")
+	submit = SubmitField("Submit")
+
+class ReportForm(FlaskForm):
+	url = StringField(validators=[DataRequired(), Length(min=len(WEBSITE_DOMAIN) + 7, max=len(WEBSITE_DOMAIN) + 25, message="Invalid short URL"), validate_short_URL])
+
+	message = TextAreaField(validators=[DataRequired(), Length(1, 200, message="Message too short or too long")])
+
+	submit = SubmitField("Submit")

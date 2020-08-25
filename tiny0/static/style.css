@@ -216,7 +216,7 @@ body {
 .clicks {
   color: #f68741;
   text-align: center;
-  margin-top: 230px;
+  margin-top: 20vh;
 }
 
 .clicks h1 {
@@ -225,6 +225,12 @@ body {
 
 .clicks h2 {
   font-size: 25px;
+}
+
+.thanks {
+  color: #f68741;
+  text-align: center;
+  margin-top: 20vh;
 }
 
 .donation {

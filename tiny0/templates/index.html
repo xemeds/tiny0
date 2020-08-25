@@ -5,7 +5,7 @@
 	<h1>&#60 URL Shortener &#62</h1>
 	{{ form.hidden_tag() }}
 	{{ form.url(placeholder="Enter the URL here", autofocus=true, class="feedback-input") }} 
-	{{ form.token(placeholder="Enter the token (optional)", autofocus=true, class="feedback-input") }}
+	{{ form.token(placeholder="Enter the token (optional)", class="feedback-input") }}
 	<div class="tooltip">
 		What's a token?
 	  <span class="tooltiptext"><p>tiny0.cc/token</p><p>Token must be between 6 and 16 characters long</p><p>It can only contain letters, numbers, underscores(_) and dashes(-)</p></span>
