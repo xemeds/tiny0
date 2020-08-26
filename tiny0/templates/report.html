@@ -5,7 +5,7 @@
 	<h1>&#60 Report &#62</h1>
 	{{ form.hidden_tag() }}
 	{{ form.url(placeholder="Enter the short URL", autofocus=true, class="feedback-input") }} 
-	{{ form.message(placeholder="Enter a short message explaining the reason for your report", class="feedback-input") }}
+	{{ form.message(placeholder="Enter a short message explaining the reason of your report", class="feedback-input") }}
 	{{ form.submit(class="button") }}
 	{% if form.errors %}
 		<div class="form-errors">
