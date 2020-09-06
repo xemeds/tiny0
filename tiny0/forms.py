@@ -48,7 +48,7 @@ def validate_token(form, field):
 		return
 
 	# If the token is the same as a pages route
-	if field.data == "tracker" or field.data == "lookup" or field.data == "report" or field.data == "donate":
+	if field.data == "tracker" or field.data == "lookup" or field.data == "report" or field.data == "donate" or field.data == "removed":
 		# Raise a ValidationError
 		raise ValidationError("Token already exists")
 

@@ -233,6 +233,16 @@ body {
   color: #e26803;
 }
 
+.removed {
+  color: #f68741;
+  text-align: center;
+  margin-top: 250px;
+}
+
+.removed h1 {
+  font-size: 50px;
+}
+
 .error {
   color: #ffffff;
   text-align: center;

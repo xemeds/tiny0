@@ -123,6 +123,11 @@ def report():
 def donate():
 	return render_template("donate.html")
 
+# Removed url route
+@app.route("/removed")
+def removed():
+	return render_template("removed.html")
+
 # Error handling routes
 @app.errorhandler(404)
 def error_404(error):
