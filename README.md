@@ -47,9 +47,3 @@ and change the config file located in the directory below:
 # License
 
 This project is under the [MIT](https://github.com/xemeds/tiny0/blob/master/LICENSE) license.
-
-# Donate
-
-**Bitcoin Address:** 1Mg55rPVuQ2P8zKsCcLdsmgqH24uLXfLbR
-
-**Patreon:** [patreon.com/xemeds](https://www.patreon.com/xemeds)
