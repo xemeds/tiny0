@@ -1,9 +1,20 @@
-import json
+import os
+from distutils.util import strtobool
 
-with open("tiny0/config.json", "r") as config_file:
+WEBSITE_DOMAIN = os.environ.get("WEBSITE_DOMAIN")
+if not WEBSITE_DOMAIN:
+	WEBSITE_DOMAIN = "127.0.0.1:5000"
 
-	config_data = json.load(config_file)
+SECRET_KEY = os.environ.get("SECRET_KEY")
+if not SECRET_KEY:
+	SECRET_KEY = "SECRET_KEY"
 
-	WEBSITE_DOMAIN = config_data.get("WEBSITE_DOMAIN")
-	SECRET_KEY = config_data.get("SECRET_KEY")
-	SQLALCHEMY_DATABASE_URI = config_data.get("SQLALCHEMY_DATABASE_URI")
+SQLALCHEMY_DATABASE_URI = os.environ.get("SQLALCHEMY_DATABASE_URI")
+if not SQLALCHEMY_DATABASE_URI:
+	SQLALCHEMY_DATABASE_URI = "sqlite:///database.db"
+
+DEBUG = os.environ.get("DEBUG")
+if not DEBUG:
+	DEBUG = "true"
+
+DEBUG = strtobool(DEBUG)

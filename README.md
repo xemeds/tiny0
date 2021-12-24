@@ -32,17 +32,19 @@ Visit the below URL to view the flask app:
 
 If you do not have a dedicated server, I highly recommend using [Linode](https://www.linode.com/), [Heroku](https://www.heroku.com/) or [PythonAnywhere](https://www.pythonanywhere.com/) to host your application.
 
-Before deploying, in the file:
+Before deploying, make sure to set the following environment variables:
 
-	tiny0/run.py  
+	$ export WEBSITE_DOMAIN=
+	$ export SECRET_KEY=
+	$ export DEBUG=
+	$ export SQLALCHEMY_DATABASE_URI=
 
-set running in debug mode to False:
+If not they will default to the following values:
 
-	app.run(debug=False)
-
-and change the config file located in the directory below:
-
-	tiny0/tiny0/config.json
+	WEBSITE_DOMAIN=127.0.0.1:5000
+	SECRET_KEY=SECRET_KEY
+	DEBUG=true
+	SQLALCHEMY_DATABASE_URI=sqlite:///database.db
 
 # License
 
