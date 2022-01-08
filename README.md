@@ -1,4 +1,4 @@
-**Currently hosted at: ** [https://tiny0.herokuapp.com](https://tiny0.herokuapp.com)
+**Currently hosted at:** [https://tiny0.herokuapp.com](https://tiny0.herokuapp.com)
 
 # How it works
 
