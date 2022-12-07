@@ -1,5 +1,3 @@
-**Currently hosted at:** [https://tiny0.herokuapp.com](https://tiny0.herokuapp.com)
-
 # How it works
 
 Each URL that is submitted goes through a simple check for validity and/or added http:// before it to redirect successful.
